@@ -1,0 +1,120 @@
+{
+
+    "default":
+    {
+      "backgroundAnimationFile":"assets/bg.json",
+      "backgroundAlignment":"bottomCenter",
+      "steps":[
+        {
+          "type": "QuestionStep",
+          "title":"My Car",
+          "cancellable":false,
+          "titleIconAnimationFile":"assets/car.json",
+          "nextButtonText":"",
+          "autoTrigger":true,
+          "inputType":"singleChoice",
+          "options":[
+             {"key":"CAR_SELECTED","text":"Select A Car"},
+             {"key":"CALL_DRIVER","text":"Call Driver Now"}
+          ],
+          "id":"CHOICE",
+          "relevantConditions":[{"id":"CALL_DRIVER","expression":"IN CALL_DRIVER"}]
+        },{
+          "type": "QuestionStep",
+          "title":"Select Car",
+          "titleIconAnimationFile":"assets/car.json",
+          "nextButtonText":"",
+          "autoTrigger":true,
+          "inputType":"singleChoice",
+          "options":[
+             {"key":"AUDI","text":"Audi"},
+             {"key":"BENZ","text":"Benz"}
+          ],
+          "id":"CAR_SELECTED",
+          "relevantConditions":[{"id":"IS_COMPLETED","expression":"FOR_ALL"}]
+        },{
+          "type": "QuestionStep",
+          "title":"Call / Ping Driver",
+          "titleIconAnimationFile":"assets/car.json",
+          "nextButtonText":"",
+          "autoTrigger":true,
+          "inputType":"singleChoice",
+          "options":[
+             {"key":"CALL","text":"Call"},
+             {"key":"PING","text":"PING"}
+          ],
+          "id":"CALL_DRIVER"
+        },
+        {
+          "type": "CompletionStep",
+          "autoTrigger":true,
+          "nextButtonText":"",
+          "title":"Please wait..",
+          "id":"IS_COMPLETED"
+        }
+      ]
+    
+   },
+    "auth":{
+      "backgroundAnimationFile":"assets/bg.json",
+      "backgroundAlignment":"bottomCenter",
+      "steps":[
+        {
+             "type": "QuestionStep",
+             "title":"My Car",
+             "cancellable":false,
+             "titleIconAnimationFile":"assets/car.json",
+             "nextButtonText":"",
+             "autoTrigger":true,
+             "inputType":"singleChoice",
+             "options":[
+                {"key":"LOGIN","text":"Login"},
+                {"key":"REGISTER","text":"Register"}
+             ],
+             "id":"AUTH_CHOICE",
+             "relevantConditions":[{"id":"REGISTER_EMAIL","expression":"IN REGISTER"}]
+        },
+        {
+         "type": "QuestionStep",
+         "title":"Login",
+         "text":"Enter you email id that already register with My Car",
+         "inputType":"email",
+         "id":"LOGIN_EMAIL",
+         "relevantConditions":[{"id":"LOGIN_PASSWORD","expression":"FOR_ALL"}]
+       },
+       {
+         "type": "QuestionStep",
+         "title":"Register",
+         "text":"Enter you email id for new Account on My Car",
+         "inputType":"email",
+         "id":"REGISTER_EMAIL",
+         "relevantConditions":[{"id":"REGISTER_PASSWORD","expression":"FOR_ALL"}]
+       },
+       {
+         "type": "QuestionStep",
+         "title":"Register",
+         "text":"Enter you new password.",
+         "inputType":"password",
+         "id":"REGISTER_PASSWORD",
+         "relevantConditions":[{"id":"IS_COMPLETED","expression":"FOR_ALL"}]
+       },
+       {
+         "type": "QuestionStep",
+         "title":"Login",
+         "text":"Enter you password.",
+         "inputType":"password",
+         "id":"LOGIN_PASSWORD",
+         "relevantConditions":[{"id":"IS_COMPLETED","expression":"FOR_ALL"}]
+       },
+       {
+         "type": "CompletionStep",
+         "autoTrigger":true,
+         "nextButtonText":"",
+         "title":"Please wait..",
+         "id":"IS_COMPLETED"
+       }
+
+    ]
+   }
+}
+
