@@ -28,10 +28,11 @@
           "inputType":"singleChoice",
           "options":[
              {"key":"AUDI","text":"Audi"},
-             {"key":"BENZ","text":"Benz"}
+             {"key":"BENZ","text":"Benz"},
+             {"key":"Suzuki","text":"Suzuki"}
           ],
           "id":"CAR_SELECTED",
-          "relevantConditions":[{"id":"IS_COMPLETED","expression":"FOR_ALL"}]
+          "relevantConditions":[{"id":"SMILE","expression":"FOR_ALL"}]
         },{
           "type": "QuestionStep",
           "title":"Call / Ping Driver",
@@ -45,6 +46,13 @@
           ],
           "id":"CALL_DRIVER"
         },
+        {
+         "type": "QuestionStep",
+         "title":"Are you Happy",
+         "text":"",
+         "inputType":"smile",
+         "id":"SMILE"
+       },
         {
           "type": "CompletionStep",
           "autoTrigger":true,
